@@ -22,28 +22,29 @@ project:
       - elf
       - bin
 
+  connections:
+    - connect: Video
+      consumes:
+        - AVH_VIDEO
+
   groups:
     - group: MainStatic
-      not-for-context:
-        - .VSI-enabled
-        - +Alif-E7-M55-HP
+      for-context:
+        - +AVH-SSE-300
+        - +AVH-SSE-310
+        - +AVH-SSE-315
+        - +AVH-SSE-320
       files:
         - file: include/InputFiles.hpp
         - file: src/InputFiles.cpp
         - file: src/sample_image.cpp
         - file: src/main_static.cpp
 
-    - group: MainLive
-      for-context:
-        - +Alif-E7-M55-HP
-      files:
-        - file: src/main_live.cpp
+    - group: MainVideo
 
-    - group: MainVSI
-      for-context:
-        - .VSI-enabled
       files:
-        - file: src/main_vsi.cpp
+        - file: src/main_video.cpp
+        - file: include/main_video.h
 
     - group: Use Case
       files:
@@ -57,7 +58,8 @@ project:
           for-context:
             - +AVH-SSE-300-U55
             - +AVH-SSE-310-U55
-            - +Alif-E7-M55-HP
+            - +Alif-DevKit-E7-HP
+            - +Alif-AppKit-E7
         - file: src/yolo-fastest_192_face_v4_vela_Y256.tflite.cpp
           for-context:
             - +AVH-SSE-300-U65
@@ -67,56 +69,14 @@ project:
           for-context:
             - +AVH-SSE-320-U85
 
-    - group: Device Files
-      files:
-        - file: linker/mps3-sse-300.sct
-          for-context:
-            - +AVH-SSE-300
-            - +AVH-SSE-300-U55
-            - +AVH-SSE-300-U65
-
-        - file: linker/mps3-sse-310.sct
-          for-context:
-            - +AVH-SSE-310
-            - +AVH-SSE-310-U55
-            - +AVH-SSE-310-U65
-
-        - file: linker/mps4-sse-315.sct
-          for-context:
-            - +AVH-SSE-315
-            - +AVH-SSE-315-U65
-            - +AVH-SSE-320
-            - +AVH-SSE-320-U85
-
-        - file: linker/alif-e7-m55-hp.sct
-          for-context: +Alif-E7-M55-HP
-
   define:
     - ACTIVATION_BUF_SZ: 532480
 
   layers:
     - layer: ../common/common.clayer.yml
 
-    - layer: ../device/corstone/corstone-device.clayer.yml
-      for-context:
-        - +AVH-SSE-300
-        - +AVH-SSE-300-U55
-        - +AVH-SSE-300-U65
-        - +AVH-SSE-310
-        - +AVH-SSE-310-U55
-        - +AVH-SSE-310-U65
-        - +AVH-SSE-315
-        - +AVH-SSE-315-U65
-        - +AVH-SSE-320
-        - +AVH-SSE-320-U85
-
-    - layer: ../device/alif-ensemble/alif-ensemble-E7-device.clayer.yml
-      for-context:
-        - +Alif-E7-M55-HP
-
-    - layer: ../device/corstone/vsi/vsi.clayer.yml
-      for-context:
-        - .VSI-enabled
+    - layer: $Board-Layer$
+      type: Board
 
   components:
     - component: ARM::ML Eval Kit:Vision:Object detection
