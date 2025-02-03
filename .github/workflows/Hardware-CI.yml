@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright 2024 Arm Limited and/or its
+# SPDX-FileCopyrightText: Copyright 2025 Arm Limited and/or its
 # affiliates <open-source-office@arm.com>
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -31,9 +31,9 @@ jobs:
       matrix:
         target: [
           {proj: kws, board: FRDM-K64F},
-          {proj: kws, board: STM32F746-DISCO}
-          # {proj: kws, board: Alif-E7-M55-HP},
-          # {proj: object-detection, board: Alif-E7-M55-HP}
+          {proj: kws, board: STM32F746-DISCO},
+          {proj: kws, board: Alif-E7-M55-HP},
+          {proj: object-detection, board: Alif-E7-M55-HP}
         ]
 
       fail-fast: false
