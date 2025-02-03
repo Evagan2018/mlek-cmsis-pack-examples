@@ -32,7 +32,7 @@ jobs:
         target: [
           {proj: kws, board: FRDM-K64F},
           {proj: kws, board: STM32F746-DISCO},
-          {proj: kws, board: Alif-E7-M55-HP},
+          {proj: kws, board: Alif-E7-M55-HE},
           {proj: object-detection, board: Alif-E7-M55-HP}
         ]
 
