@@ -17,21 +17,21 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/2.4.0/tools/projmgr/schemas/csolution.schema.json
 
 solution:
-  created-for: cmsis-toolbox@2.7.0
+  created-for: cmsis-toolbox@2.4.0
   compiler: AC6
   cdefault: # use default setup of toolchain specific controls.
 
   packs:
     - pack: ARM::CMSIS@6.1.0
-    - pack: ARM::CMSIS-DSP@1.16.2
-    - pack: ARM::CMSIS-NN@7.0.0
+    - pack: ARM::CMSIS-DSP@1.16.0
+    - pack: ARM::CMSIS-NN@6.0.0
 
-    - pack: Arm::ethos-u-core-driver@1.24.11
-    - pack: tensorflow::flatbuffers@1.24.11
-    - pack: tensorflow::gemmlowp@1.24.11
-    - pack: tensorflow::kissfft@1.24.11
-    - pack: tensorflow::ruy@1.24.11
-    - pack: tensorflow::tensorflow-lite-micro@1.24.11
+    - pack: Arm::ethos-u-core-driver@1.24.8
+    - pack: tensorflow::flatbuffers@1.24.8
+    - pack: tensorflow::gemmlowp@1.24.8
+    - pack: tensorflow::kissfft@1.24.8
+    - pack: tensorflow::ruy@1.24.8
+    - pack: tensorflow::tensorflow-lite-micro@1.24.8
 
     - pack: ARM::ml-embedded-eval-kit-uc-api@24.8.0
 
