@@ -1,9 +1,4 @@
 {
-    "default-registry": {
-      "kind": "git",
-      "baseline": "032d9d0820db290ce9ff644dabfdf564343013ae",
-      "repository": "https://github.com/microsoft/vcpkg"
-    },
     "registries": [
       {
         "name": "arm",
