@@ -22,7 +22,7 @@ solution:
   cdefault: # use default setup of toolchain specific controls.
 
   packs:
-    - pack: ARM::CMSIS@6.3.0
+    - pack: ARM::CMSIS@6.4.0
     - pack: ARM::CMSIS-DSP@1.17.0
     - pack: ARM::CMSIS-NN@7.0.0
 
